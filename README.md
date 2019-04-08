@@ -1,4 +1,4 @@
-![lyktos alexa skill preview image](./images/lyktos-alexa-skill-preview-image.png | width=100)
+<img src="./images/lyktos-alexa-skill-preview-image.png" width="100px" />
 
 # :trident: lyktos alexa skill
 
@@ -9,10 +9,10 @@ lyktos is an educational [alexa](https://en.wikipedia.org/wiki/Amazon_Echo) skil
 ### Example Conversation
 1. *Open lyktos*
 2. *List greek gods*
-3. *Tell me more about hermes*
-4. *Who are the parents of mercury?*
+3. *Tell me more about Hermes*
+4. *Who are the parents of Mercury?*
 5. *Compare mercury and its counterpart*
-6. *What are typical symbols of minerva?*
+6. *What are typical symbols of Minerva?*
 7. *Who is the counterpart of Neptune?*
 8. *Tell me about this project.*
 

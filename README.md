@@ -1,4 +1,4 @@
-<img src="./images/lyktos-alexa-skill-preview-image.png" width="100px" />
+<img src="./images/lyktos-alexa-skill-preview-image.png" width="135px" alt="lyktos alexa skill preview image" />
 
 # :trident: lyktos alexa skill
 

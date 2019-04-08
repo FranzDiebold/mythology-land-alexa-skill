@@ -1,0 +1,288 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "lyktos",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "ListGodsIntent",
+                    "slots": [
+                        {
+                            "name": "type",
+                            "type": "GodType"
+                        }
+                    ],
+                    "samples": [
+                        "which {type} gods do exist ",
+                        "give me {type} gods",
+                        "{type} gods and goddesses",
+                        "{type} goddesses",
+                        "{type} gods",
+                        "List {type} gods",
+                        "Which gods from {type} mythology do you know",
+                        "List all {type} gods and goddesses you know of",
+                        "Which {type} gods and goddesses do you know of",
+                        "Give me all {type} gods",
+                        "What {type} gods do you know",
+                        "List {type} gods and goddesses"
+                    ]
+                },
+                {
+                    "name": "GodDetailIntent",
+                    "slots": [
+                        {
+                            "name": "god",
+                            "type": "God"
+                        }
+                    ],
+                    "samples": [
+                        "give me details about the god {god}",
+                        "details about {god}",
+                        "{god}",
+                        "who is {god}",
+                        "Tell more about the god {god}",
+                        "Tell me details about {god}",
+                        "I want to know more about {god}",
+                        "Tell me about {god}",
+                        "Give me more details about the god {god} ",
+                        "Tell me more about the goddess {god} ",
+                        "What do you know about the god {god} ",
+                        "Give me details about {god} ",
+                        "What do you know about {god} ",
+                        "Tell me more about {god} "
+                    ]
+                },
+                {
+                    "name": "ParentsIntent",
+                    "slots": [
+                        {
+                            "name": "god",
+                            "type": "God"
+                        }
+                    ],
+                    "samples": [
+                        "Who were the parents of {god}",
+                        "name the parents of the god {god}",
+                        "give me the parents of {god}",
+                        "parents of {god}",
+                        "I want to know the parents of {god} ",
+                        "Which are the parents of {god} ",
+                        "Do you know the parents of god {god} ",
+                        "Who are the parents of {god} "
+                    ]
+                },
+                {
+                    "name": "SymbolsIntent",
+                    "slots": [
+                        {
+                            "name": "god",
+                            "type": "God"
+                        }
+                    ],
+                    "samples": [
+                        "give me the typical symbols of {god}",
+                        "symbols of {god}",
+                        "Tell me more about the symbols of god {god} ",
+                        "List the symbols of {god} ",
+                        "Please list all typical symbols of {god} ",
+                        "What are the symbols of {god} "
+                    ]
+                },
+                {
+                    "name": "CompareGodsIntent",
+                    "slots": [
+                        {
+                            "name": "god",
+                            "type": "God"
+                        },
+                        {
+                            "name": "type",
+                            "type": "GodType"
+                        },
+                        {
+                            "name": "counterpart_god",
+                            "type": "God"
+                        }
+                    ],
+                    "samples": [
+                        "compare {god} and its counterpart",
+                        "compare the god {god} with its {type} counterpart",
+                        "compare {god} with its {type} equivalent",
+                        "compare {god} with its equivalent",
+                        "please compare {god} and its counterpart",
+                        "comparison of {god} and {counterpart_god}",
+                        "comparison of {god} and its counterpart",
+                        "compare {god} with {counterpart_god}",
+                        "compare {god} with its counterpart"
+                    ]
+                },
+                {
+                    "name": "CounterpartIntent",
+                    "slots": [
+                        {
+                            "name": "god",
+                            "type": "God"
+                        },
+                        {
+                            "name": "type",
+                            "type": "GodType"
+                        }
+                    ],
+                    "samples": [
+                        "tell me the equivalent of {god}",
+                        "who is the equivalent of {god}",
+                        "who is the {type} equivalent of {god}",
+                        "what is the counterpart of the god {god}",
+                        "counterpart of {god}",
+                        "Who is the counterpart of the god {god}",
+                        "tell me the counterpart of {god}",
+                        "Give me the counterpart of {god}",
+                        "Which god is the counterpart of {god}",
+                        "Who is the counterpart of {god}"
+                    ]
+                },
+                {
+                    "name": "AboutIntent",
+                    "slots": [],
+                    "samples": [
+                        "about",
+                        "Give me more information about this project",
+                        "Tell me about this project"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "GodType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "roman",
+                                "synonyms": [
+                                    "ancient roman",
+                                    "ancient romans",
+                                    "romans"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "greek",
+                                "synonyms": [
+                                    "ancient greeks",
+                                    "ancient greek",
+                                    "greeks"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "God",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "mars"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "mercury"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "diana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "venus"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "minerva"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "neptune"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "juno"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "jupiter"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "apollo"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ares"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hermes"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "artemis"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "aphrodite"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "athena"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "poseidon"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "hera"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "zeus"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

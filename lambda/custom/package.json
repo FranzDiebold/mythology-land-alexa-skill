@@ -1,0 +1,15 @@
+{
+    "name": "lyktos-alexa-skill",
+    "version": "0.9.0",
+    "description": "lyktos - an alexa skill to compare greek and roman gods and goddesses",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Franz Diebold",
+    "license": "MIT",
+    "dependencies": {
+      "ask-sdk-core": "^2.5.1",
+      "ask-sdk-model": "^1.15.0"
+    }
+  }

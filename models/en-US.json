@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "lyktos",
+            "invocationName": "lyktos mythology",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",

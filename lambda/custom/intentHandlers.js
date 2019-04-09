@@ -11,7 +11,7 @@ const {
     getGod,
 } = require('./util');
 
-const SKILL_NAME = 'lyktos';
+const SKILL_NAME = 'lyktos mythology';
 
 const LaunchHandler = {
     canHandle(handlerInput) {
@@ -200,6 +200,8 @@ const AboutHandler = {
 
         const speechOutputs = [
             `This is an open source project. Just search for ${SKILL_NAME} on GitHub and you will find it!`,
+            '<break time="500ms"/>',
+            'All information is taken from Wikipedia.',
             '<break time="500ms"/>',
             'You can also checkout the corresponding webapp www.lyktos.ml',
         ];

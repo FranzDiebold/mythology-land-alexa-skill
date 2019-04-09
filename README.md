@@ -1,13 +1,13 @@
-<img src="./images/lyktos-alexa-skill-preview-image.png" width="135px" alt="lyktos alexa skill preview image" />
+<img src="./images/lyktos-mythology-alexa-skill-preview-image.png" width="135px" alt="lyktos mythology alexa skill preview image" />
 
-# :trident: lyktos alexa skill
+# :trident: lyktos mythology alexa skill
 
 [![license: MIT](https://img.shields.io/badge/license-MIT-brightgreen.svg)](./LICENSE.md)
 
-lyktos is an educational [alexa](https://en.wikipedia.org/wiki/Amazon_Echo) skill about [greek](https://en.wikipedia.org/wiki/Greek_mythology) and [roman](https://en.wikipedia.org/wiki/Roman_mythology) mythology and their gods and goddesses.
+*lyktos mythology* is an educational [alexa](https://en.wikipedia.org/wiki/Amazon_Echo) skill about [greek](https://en.wikipedia.org/wiki/Greek_mythology) and [roman](https://en.wikipedia.org/wiki/Roman_mythology) mythology and their gods and goddesses.
 
 ### Example Conversation
-1. *Alexa, open lyktos*
+1. *Alexa, open lyktos mythology*
 2. *List greek gods*
 3. *Tell me more about Hermes*
 4. *Who are the parents of Mercury?*

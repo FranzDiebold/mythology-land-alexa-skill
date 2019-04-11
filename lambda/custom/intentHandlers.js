@@ -11,7 +11,7 @@ const {
     getGod,
 } = require('./util');
 
-const SKILL_NAME = 'lyktos mythology';
+const SKILL_NAME = 'mythology land';
 
 const LaunchHandler = {
     canHandle(handlerInput) {

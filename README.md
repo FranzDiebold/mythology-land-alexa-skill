@@ -47,3 +47,7 @@ Check out the lambda function in [`/lambda/custom`](./lambda/custom).
 - All information is taken from [Wikipedia](https://www.wikipedia.org)
 - Gods [Vector Illustration by www.Vecteezy.com](https://www.vecteezy.com/)
 - Heaven background [Designed by macrovector / Freepik](http://www.freepik.com)
+
+
+## :trident: lyktos webapp
+Also check out the corresponding webapp **:trident: lyktos**, which is also [open source](https://github.com/FranzDiebold/lyktos)!

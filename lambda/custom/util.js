@@ -38,11 +38,46 @@ function getGodsMap(godsList) {
     }, {});
 }
 
+function shuffle(array) {
+	var currentIndex = array.length;
+    var temporaryValue, randomIndex;
+
+	while (0 !== currentIndex) {
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+		temporaryValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = temporaryValue;
+	}
+
+	return array;
+
+};
+
+function getGodSample(sampleSize) {
+    return shuffle(godsList).slice(0, sampleSize);
+}
+
+function getGodNotKnownSpeechOutputs(name) {
+    const godNamesSample = getGodSample(3).map(god => god.name);
+    const speechOutputs = [
+        `Sorry, I do not know the god ${name}.`,
+        `But you can ask me about ${listToText(godNamesSample)} for example.`,
+    ];
+    return speechOutputs;
+}
+
 function getGodsListByType(type) {
+    if (!type) {
+        return null;
+    }
     return filterByType(godsList, type.toLowerCase());
 }
 
 function getGod(name) {
+    if (!name) {
+        return null;
+    }
     const godsMap = getGodsMap(godsList);
     return godsMap[name.toLowerCase()];
 }
@@ -53,6 +88,8 @@ module.exports = {
     godOrGoddess,
     heOrShe,
     hisOrHer,
+    getGodSample,
+    getGodNotKnownSpeechOutputs,
     getGodsListByType,
     getGod,
 };

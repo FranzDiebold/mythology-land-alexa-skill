@@ -7,6 +7,8 @@ const {
     godOrGoddess,
     heOrShe,
     hisOrHer,
+    getGodSample,
+    getGodNotKnownSpeechOutputs,
     getGodsListByType,
     getGod,
 } = require('./util');
@@ -39,16 +41,23 @@ const ListGodsIntentHandler = {
     },
 
     handle(handlerInput) {
+        console.log('ListGodsIntent');
+
         const responseBuilder = handlerInput.responseBuilder;
         const type = handlerInput.requestEnvelope.request.intent.slots.type.value;
 
+        let speechOutput;
         const godsList = getGodsListByType(type);
-        const gods = listToText(godsList.map(god => god.name));
-        const possibleSpeechOutputs = [
-            `I know the following ${type} gods and goddesses: ${gods}.`,
-            `The following ${type} gods and goddesses come into my mind: ${gods}.`
-        ];
-        const speechOutput = randomize(possibleSpeechOutputs);
+        if (!godsList || godsList.length === 0) {
+            speechOutput = 'Sorry, I only know greek and roman gods.';
+        } else {
+            const gods = listToText(godsList.map(god => god.name));
+            const possibleSpeechOutputs = [
+                `I know the following ${type} gods and goddesses: ${gods}.`,
+                `The following ${type} gods and goddesses come into my mind: ${gods}.`
+            ];
+            speechOutput = randomize(possibleSpeechOutputs);
+        }
 
         return responseBuilder
             .speak(speechOutput)
@@ -70,15 +79,20 @@ const GodDetailIntentHandler = {
         const responseBuilder = handlerInput.responseBuilder;
         const name = handlerInput.requestEnvelope.request.intent.slots.god.value;
 
+        let speechOutputs;
         const god = getGod(name);
-        const counterpartType = god.type === 'greek' ? 'roman' : 'greek';
-        const speechOutputs = [
-            `${god.name} is a ${god.type} ${godOrGoddess(god)}. `,
-            `${heOrShe(god)} is ${god.role}.`,
-            `${hisOrHer(god)} symbols are ${listToText(god.symbols)}.`,
-            `${hisOrHer(god)} parents are ${listToText(god.parents)}.`,
-            `${hisOrHer(god)} ${counterpartType} counterpart is ${god.counterpart}.`,
-        ];
+        if (!god) {
+            speechOutputs = getGodNotKnownSpeechOutputs(name);
+        } else {
+            const counterpartType = god.type === 'greek' ? 'roman' : 'greek';
+            speechOutputs = [
+                `${god.name} is a ${god.type} ${godOrGoddess(god)}. `,
+                `${heOrShe(god)} is ${god.role}.`,
+                `${hisOrHer(god)} symbols are ${listToText(god.symbols)}.`,
+                `${hisOrHer(god)} parents are ${listToText(god.parents)}.`,
+                `${hisOrHer(god)} ${counterpartType} counterpart is ${god.counterpart}.`,
+            ];
+        }
         const speechOutput = speechOutputs.join(' ');
 
         return responseBuilder
@@ -101,17 +115,22 @@ const CompareGodsIntentHandler = {
         const responseBuilder = handlerInput.responseBuilder;
         const name = handlerInput.requestEnvelope.request.intent.slots.god.value;
 
+        let speechOutputs;
         const god = getGod(name);
-        const counterpartGod = getGod(god.counterpart);
-        const speechOutputs = [
-            `Let's compare the ${god.type} ${godOrGoddess(god)} ${god.name} with its ${counterpartGod.type} counterpart ${counterpartGod.name}.`,
-            '<break time="500ms"/>',
-            `${god.name} is ${god.role}, while ${counterpartGod.name} is ${counterpartGod.role}.`,
-            '<break time="500ms"/>',
-            `${god.name}s symbols are ${listToText(god.symbols)}, whereas ${counterpartGod.name}s are ${listToText(counterpartGod.symbols)}.`,
-            '<break time="500ms"/>',
-            `${god.name}s parents are ${listToText(god.parents)}, ${counterpartGod.name}s are ${listToText(counterpartGod.parents)}.`,
-        ];
+        if (!god) {
+            speechOutputs = getGodNotKnownSpeechOutputs(name);
+        } else {
+            const counterpartGod = getGod(god.counterpart);
+            speechOutputs = [
+                `Let's compare the ${god.type} ${godOrGoddess(god)} ${god.name} with its ${counterpartGod.type} counterpart ${counterpartGod.name}.`,
+                '<break time="500ms"/>',
+                `${god.name} is ${god.role}, while ${counterpartGod.name} is ${counterpartGod.role}.`,
+                '<break time="500ms"/>',
+                `${god.name}s symbols are ${listToText(god.symbols)}, whereas ${counterpartGod.name}s are ${listToText(counterpartGod.symbols)}.`,
+                '<break time="500ms"/>',
+                `${god.name}s parents are ${listToText(god.parents)}, ${counterpartGod.name}s are ${listToText(counterpartGod.parents)}.`,
+            ];
+        }
         const speechOutput = speechOutputs.join(' ');
 
         return responseBuilder
@@ -132,10 +151,16 @@ const CounterpartIntentHandler = {
         const responseBuilder = handlerInput.responseBuilder;
         const name = handlerInput.requestEnvelope.request.intent.slots.god.value;
 
+        let speechOutput;
         const god = getGod(name);
-        const counterpartType = god.type === 'greek' ? 'roman' : 'greek';
-        const godOrGoddess = god.gender === 'male' ? 'god' : 'goddess';
-        const speechOutput = `The ${counterpartType} counterpart of the ${god.type} ${godOrGoddess} ${god.name} is ${god.counterpart}.`;
+        if (!god) {
+            const speechOutputs = getGodNotKnownSpeechOutputs(name);
+            speechOutput = speechOutputs.join(' ');
+        } else {
+            const counterpartType = god.type === 'greek' ? 'roman' : 'greek';
+            const godOrGoddess = god.gender === 'male' ? 'god' : 'goddess';
+            speechOutput = `The ${counterpartType} counterpart of the ${god.type} ${godOrGoddess} ${god.name} is ${god.counterpart}.`;
+        }
 
         return responseBuilder
             .speak(speechOutput)
@@ -157,8 +182,14 @@ const ParentsIntentHandler = {
         const responseBuilder = handlerInput.responseBuilder;
         const name = handlerInput.requestEnvelope.request.intent.slots.god.value;
 
+        let speechOutput;
         const god = getGod(name);
-        const speechOutput = `${god.name}s parents are ${listToText(god.parents)}.`;
+        if (!god) {
+            const speechOutputs = getGodNotKnownSpeechOutputs(name);
+            speechOutput = speechOutputs.join(' ');
+        } else {
+            speechOutput = `${god.name}s parents are ${listToText(god.parents)}.`;
+        }
 
         return responseBuilder
             .speak(speechOutput)
@@ -178,8 +209,14 @@ const SymbolsIntentHandler = {
         const responseBuilder = handlerInput.responseBuilder;
         const name = handlerInput.requestEnvelope.request.intent.slots.god.value;
 
+        let speechOutput;
         const god = getGod(name);
-        const speechOutput = `${god.name}s symbols are ${listToText(god.symbols)}.`;
+        if (!god) {
+            const speechOutputs = getGodNotKnownSpeechOutputs(name);
+            speechOutput = speechOutputs.join(' ');
+        } else {
+            speechOutput = `${god.name}s symbols are ${listToText(god.symbols)}.`;
+        }
 
         return responseBuilder
             .speak(speechOutput)
@@ -224,8 +261,13 @@ const HelpHandler = {
     handle(handlerInput) {
         const responseBuilder = handlerInput.responseBuilder;
 
+        const randomGods = getGodSample(2);
+
         const speechOutputs = [
             'You can ask me about greek and roman mythology.',
+            'I am happy list greek or roman gods.',
+            `Or give you details about the god ${randomGods[0].name}.`,
+            `Or compare the god ${randomGods[1].name} with its counterpart.`,
         ];
         const speechOutput = speechOutputs.join(' ');
 

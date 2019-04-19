@@ -23,7 +23,7 @@ const LaunchHandler = {
     },
 
     handle(handlerInput) {
-        console.log('Launch');
+        console.log('>> Launch');
 
         const responseBuilder = handlerInput.responseBuilder;
 
@@ -46,7 +46,7 @@ const ListGodsIntentHandler = {
         const responseBuilder = handlerInput.responseBuilder;
         const type = handlerInput.requestEnvelope.request.intent.slots.type.value;
 
-        console.log(`ListGodsIntent (type: ${type})`);
+        console.log(`>> ListGodsIntent (type: ${type})`);
 
         let speechOutput;
         const godsList = getGodsListByType(type);
@@ -79,7 +79,7 @@ const GodDetailIntentHandler = {
         const responseBuilder = handlerInput.responseBuilder;
         const name = handlerInput.requestEnvelope.request.intent.slots.god.value;
 
-        console.log(`GodDetailIntent (name: ${name})`);
+        console.log(`>> GodDetailIntent (name: ${name})`);
 
         let speechOutputs;
         const god = getGod(name);
@@ -115,7 +115,7 @@ const CompareGodsIntentHandler = {
         const responseBuilder = handlerInput.responseBuilder;
         const name = handlerInput.requestEnvelope.request.intent.slots.god.value;
 
-        console.log(`CompareGodsIntent (name: ${name})`);
+        console.log(`>> CompareGodsIntent (name: ${name})`);
 
         let speechOutputs;
         const god = getGod(name);
@@ -153,7 +153,7 @@ const CounterpartIntentHandler = {
         const responseBuilder = handlerInput.responseBuilder;
         const name = handlerInput.requestEnvelope.request.intent.slots.god.value;
 
-        console.log(`CounterpartIntent (name: ${name})`);
+        console.log(`>> CounterpartIntent (name: ${name})`);
 
         let speechOutput;
         const god = getGod(name);
@@ -184,7 +184,7 @@ const ParentsIntentHandler = {
         const responseBuilder = handlerInput.responseBuilder;
         const name = handlerInput.requestEnvelope.request.intent.slots.god.value;
 
-        console.log(`ParentsIntent (name: ${name})`);
+        console.log(`>> ParentsIntent (name: ${name})`);
 
         let speechOutput;
         const god = getGod(name);
@@ -213,7 +213,7 @@ const SymbolsIntentHandler = {
         const responseBuilder = handlerInput.responseBuilder;
         const name = handlerInput.requestEnvelope.request.intent.slots.god.value;
 
-        console.log(`SymbolsIntent (name: ${name})`);
+        console.log(`>> SymbolsIntent (name: ${name})`);
 
         let speechOutput;
         const god = getGod(name);
@@ -239,7 +239,7 @@ const AboutHandler = {
     },
 
     handle(handlerInput) {
-        console.log('About');
+        console.log('>> About');
 
         const responseBuilder = handlerInput.responseBuilder;
 
@@ -267,7 +267,7 @@ const HelpHandler = {
     },
 
     handle(handlerInput) {
-        console.log('Help');
+        console.log('>> Help');
 
         const responseBuilder = handlerInput.responseBuilder;
 
@@ -299,7 +299,7 @@ const StopHandler = {
     },
 
     handle(handlerInput) {
-        console.log('Stop_Cancel');
+        console.log('>> Stop_Cancel');
 
         const responseBuilder = handlerInput.responseBuilder;
 
@@ -322,7 +322,7 @@ const ErrorHandler = {
     },
 
     handle(handlerInput, error) {
-        console.log('Error');
+        console.log('>> Error');
 
         const request = handlerInput.requestEnvelope.request;
 
@@ -344,7 +344,7 @@ const FallbackHandler = {
     },
 
     handle(handlerInput) {
-        console.log('AMAZON.FallbackIntent');
+        console.log('>> AMAZON.FallbackIntent');
 
         const FALLBACK_MESSAGE = `The ${SKILL_NAME} skill can't help you with that. It can help you learn about greek and roman mythology. What can I help you with?`;
         const FALLBACK_REPROMPT = 'What can I help you with?';

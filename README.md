@@ -2,7 +2,7 @@
 
 # :trident: mythology land alexa skill
 
-[![Alexa skill: live](https://img.shields.io/badge/Alexa%20skill-live-2ccafb.svg)](https://www.amazon.com/Franz-Diebold-mythology-land/dp/B07QRGT3Q8)
+[![Alexa skill: live](https://img.shields.io/badge/Alexa%20skill-live-2ccafb.svg)](https://mythology-land.diebold.io)
 [![license: MIT](https://img.shields.io/badge/license-MIT-brightgreen.svg)](./LICENSE.md)
 
 *mythology land* is an educational [alexa](https://en.wikipedia.org/wiki/Amazon_Echo) skill about [greek](https://en.wikipedia.org/wiki/Greek_mythology) and [roman](https://en.wikipedia.org/wiki/Roman_mythology) mythology and their gods and goddesses.
